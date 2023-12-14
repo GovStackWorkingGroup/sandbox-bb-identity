@@ -1,1 +1,1 @@
-IDBB config
+IDBB config for govstack
