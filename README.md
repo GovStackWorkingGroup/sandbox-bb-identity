@@ -1,8 +1,8 @@
-# MOSIP Configuration
+# IDBB Configuration
 
 ## Configuration properties
 
-MOSIP uses Spring CLoud Config Server to read the properties files. So, to use the properties files in this repo, please update the IP addresses, keys and passwords and then point to this repo in spring cloud config in kernel module.
+IDBB uses Spring CLoud Config Server to read the properties files. So, to use the properties files in this repo, please update the IP addresses, keys and passwords and then point to this repo in spring cloud config in kernel module.
 
 ## Config server 
 
@@ -15,14 +15,14 @@ MOSIP uses Config Server to read the properties files.
 
 1. Download Config server jar [config-server](https://mvnrepository.com/artifact/io.mosip.kernel/kernel-config-server)
 
-2. Clone the Mosip config repo [mosip-config](https://github.com/mosip/mosip-config/tree/develop2-v2)
+2. Clone the Mosip config repo [mosip-config]([https://github.com/mosip/mosip-config/tree/develop2-v2](https://github.com/tf-govstack/mosip-config/tree/govstack-v1.2.0.1-B3))
 
 ### Run 
 
 To run config server jar set the following attribute 
 
 ```
--Dspring.cloud.config.server.native.search-locations = point to mosip-config repo location
+-Dspring.cloud.config.server.native.search-locations = point to IDBB-config repo location
 ```
 
 ### Run Config Server Jar
