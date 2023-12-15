@@ -60,8 +60,8 @@ databases:
         name: postgres-postgresql
         key: postgresql-password
     dml: 0
-    repoUrl: https://github.com/mosip/digital-card-service.git
-    branch: develop
+    repoUrl: https://github.com/tf-govstack/digital-card-service.git
+    branch: tf-develop-infra
     
   mosip_esignet:
     enabled: false  
