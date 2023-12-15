@@ -10,6 +10,7 @@ NS=esignet
 CHART_VERSION=12.0.1-B3
 
 helm repo add mosip https://mosip.github.io/mosip-helm
+helm repo add tf-govstack https://tf-govstack.github.io/mosip-helm
 helm repo update
 
 while true; do
@@ -30,7 +31,7 @@ while true; do
         kubectl -n $NS delete --ignore-not-found=true secret db-common-secrets
 
         echo Initializing DB
-        helm -n $NS install postgres-init-esignet mosip/postgres-init -f init_values.yaml \
+        helm -n $NS install postgres-init-esignet mosip/postgres-init --set image.repository=tfgovstackdev/postgres-init --set image.tag=tf-develop -f init_values.yaml \
         --version $CHART_VERSION \
         --set dbUserPasswords.dbuserPassword="$DB_USER_PASSWORD" \
         --wait --wait-for-jobs

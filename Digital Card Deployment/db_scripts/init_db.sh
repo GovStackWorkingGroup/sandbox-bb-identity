@@ -10,6 +10,7 @@ NS=digitalcard
 CHART_VERSION=12.0.2
 
 helm repo add mosip https://mosip.github.io/mosip-helm
+helm repo add tf-govstack https://tf-govstack.github.io/mosip-helm
 helm repo update
 
 while true; do
@@ -27,7 +28,7 @@ while true; do
         ../helm/copy_cm_func.sh secret postgres-postgresql postgres $NS
 
         echo Initializing DB
-        helm -n $NS install postgres-init-digitalcard mosip/postgres-init -f init_values.yaml \
+        helm -n $NS install postgres-init-digitalcard tf-govstack/postgres-init --set image.repository=tfgovstackdev/postgres-init --set image.tag=tf-develop -f init_values.yaml \
         --version $CHART_VERSION \
         --set dbUserPasswords.dbuserPassword="$DB_USER_PASSWORD" \
         --wait --wait-for-jobs
